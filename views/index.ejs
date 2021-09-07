@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShrinkUrURL</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="my-4 text-center ">ShrinkUrURL</h1>
+        <form action="/short" method="post" class="my-4 form-inline">
+
+            <input type="url" name="fullUrl" id="fullUrl" placeholder="Enter your url here" class="form-control my-3"
+                required>
+            <button type="submit" class="btn btn-primary">Shrink</button>
+        </form>
+
+        <table class="table table-striped table-responsive">
+            <thead>
+                <tr>
+                    <th>Full Url</th>
+                    <th>Short Url</th>
+                    <th>clicks</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% shortUrls.forEach(shortUrl=>{ %>
+                    <tr>
+                        <td>
+                            <a href="<%= shortUrl.full %>" target="_blank">
+                                <%= shortUrl.full %>
+                            </a>
+                        </td>
+                        <td>
+                            <a href="<%= shortUrl.short %>" target="_blank">
+                                <%= shortUrl.short %>
+                            </a>
+                        </td>
+                        <td>
+                            <%= shortUrl.click %>
+                        </td>
+                    </tr>
+                    <% }) %>
+
+            </tbody>
+        </table>
+    </div>
+    <div class="fixed-bottom bg-dark text-light text-center">Developed by <a href="https://github.com/imrraaj"
+            target="_blank" class="text-light">Raj Patel</a></div>
+</body>
+
+</html>
